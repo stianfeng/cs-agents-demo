@@ -11,7 +11,7 @@ class APIClient:
         self.base_url = base_url
 
     async def astream(self, user_input: UserInput) -> AsyncGenerator[ChatMessage]:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=None) as client:
             async with client.stream("POST", self.base_url + "/astream", json=user_input.model_dump()) as response:
                 response.raise_for_status()
                 async for chunk in response.aiter_text():

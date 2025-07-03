@@ -105,8 +105,9 @@ async def draw_messages(messages_agen: AsyncGenerator[ChatMessage], is_new: bool
                     status.write(msg.content)
                     status.update(state="complete")
                 except Exception as e:
+                    print(e)
                     st.error(f"Unexpected error: {e}")
-                    st.stop()
+                    return
 
 async def main():
     # Draw existing messages
@@ -131,7 +132,8 @@ async def main():
             )
             await draw_messages(stream, is_new=True)
         except Exception as e:
+            print(e)
             st.error(f"Unexpected error: {e}")
-            st.stop()
+            return
 
 asyncio.run(main())

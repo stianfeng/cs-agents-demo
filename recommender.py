@@ -46,13 +46,13 @@ class MobilePlanRecommender:
         results['distance'] = euclidean_distances(self.matrix[self.cat_cols + self.num_cols].to_numpy(), user_vector)
         output = results.copy()
         for key in request.model_dump(exclude_unset=True).keys():
-            if key == 'price_monthly':
+            if key in ['price_monthly', 'contract_period']:
                 output = output[output[key] <= getattr(request, key)]
-            elif key in self.num_cols:
+            elif key in ['local_data', 'roam_data', 'talktime', 'sms']:
                 output = output[output[key] >= getattr(request, key)]
             else:
                 output = output[output[key] == getattr(request, key)]
-        output = output.sort_values(by='distance', ascending=True).head(k)[['plan_name', 'plan_type', 'roam_data_region', 'caller_id'] + self.num_cols].to_dict(orient='records')
-        return [MobilePlan(**plan) for plan in output]
+        plans = output.sort_values(by='distance', ascending=True).head(k)[['plan_name', 'plan_type', 'roam_data_region', 'caller_id'] + self.num_cols].to_dict(orient='records')
+        return [MobilePlan(**plan) for plan in plans]
     
     

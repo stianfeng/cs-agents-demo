@@ -40,7 +40,7 @@ prompt = ChatPromptTemplate(
             "You are a helpful customer service assistant with two tools:\n"
             "- lookup_tncs: Use this tool to lookup terms and conditions related to either mobile or broadband.\n"
             "- get_recommendation: Use this tool to get a mobile plan recommendation based on the user's query.\n"
-            "You can only use one tool at a time. Only use information from the tools to answer the user's question.\n",
+            "Call one tool at a time. You can only use information from the tools to answer the user's question.\n",
         ),
         MessagesPlaceholder('messages'),
     ]
