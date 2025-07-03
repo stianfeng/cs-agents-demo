@@ -1,0 +1,11 @@
+﻿plan_type,plan_name,price_monthly,contract_period,local_data,roam_data,roam_data_region,talktime,sms,caller_id
+Phone,Priority L,128.00,24,160,2,Worldwide,800,800,FALSE
+Phone,Priority Pro,178.00,24,230,3,Worldwide,1200,1200,FALSE
+Phone,Priority Fam,288.00,24,999,30,Worldwide,1800,1800,TRUE
+Phone,XS,62.00,24,30,0,,100,100,FALSE
+Phone,S,78.00,24,100,0,,300,300,FALSE
+Phone,M,98.00,24,130,1,Worldwide,600,600,FALSE
+SIM only,Core,40.00,0,150,1,Asia,700,700,TRUE
+SIM only,Lite,35.00,12,60,0,,400,400,TRUE
+SIM only,Priority Plus,55.00,0,200,3,Asia,1000,1000,TRUE
+SIM only,Priority Ultra,80.00,0,999,6,Asia,1500,1500,TRUE
